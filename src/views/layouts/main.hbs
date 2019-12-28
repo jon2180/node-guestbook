@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/index.css">
+  <link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css">
+  <script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
+  <style>
+    #body {
+      width: 800px;
+      margin: 0 auto;
+      min-height: 530px;
+    }
+  </style>
+</head>
+
+<body>
+  {{> head}}
+  <section id="body">
+    {{{body}}}
+  </section>
+  {{> notes}}
+  {{> footer}}
+</body>
+
+</html>

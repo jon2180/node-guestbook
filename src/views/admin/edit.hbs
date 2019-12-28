@@ -1,0 +1,68 @@
+<style>
+  div {
+    display: block;
+  }
+
+  label {
+    display: inline-block;
+    width: 80px;
+    vertical-align: top;
+    font-size: medium;
+  }
+
+  input[type="text"],
+  textarea {
+    resize: none;
+    padding: 12px;
+    box-sizing: border-box;
+  }
+
+  input[type="button"],
+  input[type="submit"],
+  button,
+  a.btn {
+    color: #fff !important;
+  }
+
+  input[type="text"] {
+    width: 500px;
+    height: 48px;
+  }
+
+  .input-summary {
+    width: 500px;
+    height: 48px;
+  }
+
+  .input-textarea {
+    width: 500px;
+    height: 200px;
+  }
+</style>
+<div>
+  Edit the Post
+</div>
+{{#each list}}
+<form action="/edit" method="POST">
+  <div>
+    {{!-- <span>Title</span> --}}
+    <label for="title">Title</label>
+    <input name="tit_cha" value="{{this.title}}" id="title" type="text">
+  </div>
+  <div>
+    {{!-- <p>Summary</p> --}}
+    <label for="summary">Summary</label>
+    <textarea id="summart" class="input-summary"  name="sum_cha">{{this.summary}}</textarea>
+  </div>
+  <div>
+    {{!-- <p>更改内容</p> --}}
+    <label for="content">Content</label>
+    <textarea id="content" name="con_cha"  class="input-textarea">{{this.content}}</textarea>
+  </div>
+  <div style="clear:left">
+    <input type="hidden" name="id" value="{{this.id}}">
+    <input type="submit" class="mdui-color-light-blue-accent mdui-btn mdui-ripple" value="提交">
+  </div>
+  {{!-- </hr> --}}
+</form>
+{{/each}}

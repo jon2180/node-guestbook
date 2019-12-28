@@ -1,0 +1,149 @@
+<style>
+  div {
+    display: block;
+  }
+
+  label {
+    display: inline-block;
+    width: 80px;
+    vertical-align: top;
+    font-size: medium;
+  }
+
+  input[type="text"],
+  textarea {
+    resize: none;
+    padding: 12px;
+    box-sizing: border-box;
+  }
+
+  input[type="button"],
+  input[type="submit"],
+  button,
+  a.btn {
+    color: #fff !important;
+  }
+
+  input[type="text"] {
+    width: 500px;
+    height: 48px;
+  }
+
+  .input-summary {
+    width: 500px;
+    height: 48px;
+  }
+
+  .input-textarea {
+    width: 500px;
+    height: 200px;
+  }
+
+  .btn-add {
+    position: fixed;
+    bottom: 50px;
+    left: 50px;
+  }
+
+  #recordPanel {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 100px;
+    background-color: #333333f2;
+    z-index: 9999;
+  }
+
+  #recordPanel form {
+    background-color: #fff;
+    border: #f2f2f2 solid 1px;
+    border-radius: 4px;
+  }
+</style>
+{{!-- class="mdui-color-purple-accent" --}}
+
+<div style="margin: 10px 0;">
+  <button onclick="toggleRecordPanel()"
+    class="mdui-color-light-blue-accent btn-add mdui-btn mdui-ripple mdui-btn-icon"><i
+      class="mdui-icon material-icons">add</i></button>
+</div>
+
+<div id="recordPanel">
+  <div class="form-container">
+    <form action="/index" method="POST">
+      <div class="con-title">
+        Add New Post
+      </div>
+      <div>
+        <label for="title">Title</label>
+        <input name="title" type="text" id="title">
+      </div>
+
+      <div>
+        <label for="summary">Summary</label>
+        <textarea name="summary" class="input-summary" id="summary"></textarea>
+      </div>
+
+      <div>
+        <label for="content">Content</label>
+        <textarea name="content" class="input-textarea"></textarea>
+      </div>
+      <div>
+        <input type="submit" value="Confirm Post" class="mdui-color-light-blue-accent mdui-btn mdui-ripple">
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<div>
+  <div class="con-title">
+    Post
+  </div>
+  {{#each list}}
+
+  <div>
+    <form action="/del" method="POST">
+      <div>Title: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{this.title}}</div>
+      <div>Summary: &nbsp;{{this.summary}}</div>
+      <div>Content: &nbsp;&nbsp;&nbsp;{{this.content}}</div>
+      <div>Time：&nbsp;&nbsp;&nbsp;&nbsp;{{this.createtime}}</div>
+      <input type="hidden" name="id" value="{{this.id}}">
+      <input class="btn mdui-color-light-blue-accent mdui-btn mdui-ripple" href="/edit?id={{this.id}}" type="submit"
+        value="Delete">
+      <a class="btn mdui-color-light-blue-accent mdui-btn mdui-ripple" href="/edit?id={{this.id}}">Edit</a>
+    </form>
+  </div>
+  {{/each}}
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+
+  function jump(e) {
+    location.href = 'edit?id=' + e;
+  }
+
+  let isShowRecordPanel = false;
+  $('#recordPanel').hide()
+
+  $('#recordPanel').click(function () {
+    $('#recordPanel').hide()
+  })
+
+  $('#recordPanel .form-container').click(function (event) {
+    event.stopPropagation();
+  })
+
+  function toggleRecordPanel() {
+    if (isShowRecordPanel)
+      $('#recordPanel').hide()
+    else
+      $('#recordPanel').show()
+    isShowRecordPanel = !isShowRecordPanel;
+
+  }
+</script>

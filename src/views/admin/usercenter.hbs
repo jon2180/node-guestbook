@@ -1,0 +1,73 @@
+<style>
+  div {
+    display: block;
+  }
+
+  label {
+    display: inline-block;
+    width: 80px;
+    vertical-align: middle;
+    font-size: medium;
+  }
+
+  input[type="text"],
+  input[type="email"] {
+    resize: none;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+
+  input[type="button"],
+  input[type="submit"],
+  button,
+  a.btn {
+    color: #fff !important;
+  }
+
+  input[type="text"],
+  input[type="email"] {
+    width: 500px;
+    height: 48px;
+  }
+
+  .input-summary {
+    width: 500px;
+    height: 48px;
+  }
+
+  .input-textarea {
+    width: 500px;
+    height: 200px;
+  }
+</style>
+<div>
+  Edit the Post
+</div>
+{{#each list}}
+<form action="/user" method="POST">
+  <div>
+    {{!-- <span>Title</span> --}}
+    <label for="title">Username</label>
+    <input name="username" value="{{this.username}}" id="title" type="text">
+  </div>
+  <div>
+    {{!-- <p>Summary</p> --}}
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" value="{{this.email}}">
+    {{!-- <textarea id="email" class="input-summary" name="email"></textarea> --}}
+  </div>
+  <div>
+    {{!-- <p>更改内容</p> --}}
+    <label for="sex">Gender</label>
+    <input type="radio" name="sex" id="sex" value="1">Male
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="radio" name="sex" value="0">Female
+    {{!-- <input id="sex" name="sex" class="input-textarea" value="{{this.sex}}" type="text" /> --}}
+  </div>
+  <div style="clear:left">
+    <input type="hidden" name="id" value="{{this.id}}">
+    <input type="submit" class="mdui-color-light-blue-accent mdui-btn mdui-ripple" value="提交">
+  </div>
+  {{!-- </hr> --}}
+</form>
+{{/each}}

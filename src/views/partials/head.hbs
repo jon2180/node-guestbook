@@ -1,0 +1,69 @@
+<style>
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  #header {
+    display: flex;
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+    
+    height: 100px;
+    width: 100%;
+    background: #444;
+    box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.52);
+  }
+
+  .logo {
+    height: 80px;
+    object-fit: contain;
+  }
+
+  #header .title {
+    display: inline-block;
+    font-size: 20px;
+    color: #f2f2f2;
+    line-height: 80px;
+    margin: 0;
+  }
+
+  ul {
+    display: flex;
+  }
+
+  li>a {
+    display: inline-block;
+    text-align: center;
+    margin: 0 30px;
+    line-height: 80px;
+  }
+</style>
+
+<header id="header">
+  <img class="logo" src="/images/logo.jpg" alt="logo">
+  <div class="title"><span style="color: red; margin: 0 20px;">|</span>Yaya`s</div>
+  {{!-- <div> --}}
+  <ul>
+    <li>
+      <a href="/admin">Admin</a>
+    </li>
+    <li>
+      <a href="/user/">User Center</a>
+    </li>
+    <li>
+      <a href="/changepassword">Change Password</a>
+    </li>
+    <li>
+      <a href="/out">Log out</a>
+    </li>
+  </ul>
+  {{!-- </div> --}}
+</header>
