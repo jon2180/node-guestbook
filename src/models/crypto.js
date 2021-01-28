@@ -1,4 +1,4 @@
-const Uuid = require('node-uuid');
+const Uuid = require('uuid');
 const CryptoJS = require('crypto-js');
 const { secretKey } = require('../config');
 

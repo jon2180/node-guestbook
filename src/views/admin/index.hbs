@@ -73,7 +73,7 @@
 
 <div id="recordPanel">
   <div class="form-container">
-    <form action="/index" method="POST">
+    <form action="/posts/add" method="POST">
       <div class="con-title">
         Add New Post
       </div>
@@ -106,7 +106,7 @@
   {{#each list}}
 
   <div>
-    <form action="/del" method="POST">
+    <form action="/posts/del" method="POST">
       <div>Title: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{this.title}}</div>
       <div>Summary: &nbsp;{{this.summary}}</div>
       <div>Content: &nbsp;&nbsp;&nbsp;{{this.content}}</div>

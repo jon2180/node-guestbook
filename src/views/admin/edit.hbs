@@ -43,7 +43,7 @@
   Edit the Post
 </div>
 {{#each list}}
-<form action="/edit" method="POST">
+<form action="/posts/edit" method="POST">
   <div>
     {{!-- <span>Title</span> --}}
     <label for="title">Title</label>
@@ -52,12 +52,12 @@
   <div>
     {{!-- <p>Summary</p> --}}
     <label for="summary">Summary</label>
-    <textarea id="summart" class="input-summary"  name="sum_cha">{{this.summary}}</textarea>
+    <textarea id="summart" class="input-summary" name="sum_cha">{{this.summary}}</textarea>
   </div>
   <div>
     {{!-- <p>更改内容</p> --}}
     <label for="content">Content</label>
-    <textarea id="content" name="con_cha"  class="input-textarea">{{this.content}}</textarea>
+    <textarea id="content" name="con_cha" class="input-textarea">{{this.content}}</textarea>
   </div>
   <div style="clear:left">
     <input type="hidden" name="id" value="{{this.id}}">
